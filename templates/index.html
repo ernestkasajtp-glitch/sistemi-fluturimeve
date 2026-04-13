@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <title>King's Travel - Bileta</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 40px; }
+        .container { max-width: 800px; margin: auto; }
+        .karta { background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid #d4af37; }
+        .itinerari { font-size: 22px; color: #333; margin: 0; }
+        .cmimi { font-size: 28px; color: #2ecc71; font-weight: bold; margin-top: 10px; }
+        .badge { background: #333; color: #d4af37; padding: 5px 12px; border-radius: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistemi i Biletave <span class="badge">{{ roli }}</span></h1>
+        <hr>
+        {% for b in biletat %}
+        <div class="karta">
+            <h2 class="itinerari">✈️ {{ b.itinerari }}</h2>
+            <p>Vende të mbetura: <strong>{{ b.stoku }}</strong></p>
+            <div class="cmimi">{{ b.cmimi + shtesa }} EUR</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
