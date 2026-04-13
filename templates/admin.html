@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - King's Travel</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+        .forma { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        input { padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        .fshij { color: red; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Menaxhimi i Biletave (Admin)</h1>
+    
+    <div class="forma">
+        <h3>Shto Biletë të Re</h3>
+        <form method="POST">
+            <input type="text" name="itinerari" placeholder="Itinerari (p.sh. Tirane-Rome)" required>
+            <input type="number" name="cmimi" placeholder="Çmimi BAZË (EUR)" required>
+            <input type="number" name="stoku" placeholder="Sa biletë janë?" required>
+            <button type="submit">SHTO NË SISTEM</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Itinerari</th>
+            <th>Çmimi Bazë</th>
+            <th>Stoku</th>
+            <th>Veprime</th>
+        </tr>
+        {% for b in biletat %}
+        <tr>
+            <td>{{ b.itinerari }}</td>
+            <td>{{ b.cmimi }} EUR</td>
+            <td>{{ b.stoku }}</td>
+            <td><a href="/delete/{{ b.id }}" class="fshij">Fshij</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
